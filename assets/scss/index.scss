@@ -1,0 +1,12 @@
+@import './variable/color.scss';
+@import './variable/grid.scss';
+@import './variable/responsive.scss';
+@import './variable/typography.scss';
+@import './variable/button.scss';
+
+// Then include the following
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';
+
+// And define any of your custom or additional CSS/SCSS here,
+// or via an @import

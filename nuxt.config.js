@@ -1,3 +1,4 @@
+import { I18N } from './config'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -13,9 +14,19 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
+  router: {
+    // middleware: 'redirect'
+  },
+  loading: {
+    color: 'red',
+    height: '5px',
+    throttle: 5000
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    '~/assets/scss',
+    '~/assets/fontawesome/fontawesome-pro-6.4.2-web/css/all.css'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -35,8 +46,8 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    ['nuxt-i18n', I18N],
   ],
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
@@ -45,4 +56,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
+  },
 }

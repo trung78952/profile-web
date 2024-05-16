@@ -1,0 +1,15 @@
+// Override Bootstrap's default font variables
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import '../../font/SVN-Titillium/index.scss';
+
+$font-family-base: 'Inter', sans-serif;
+$font-size-base: 0.8rem;
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem
+);
