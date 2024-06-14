@@ -16,5 +16,6 @@ module.exports = {
     'vue/multiline-html-element-content-newline': 'off',
     'linebreak-style': 'off',
     'vue/first-attribute-linebreak': 'off',
+    "vue/require-default-prop": "off"
   },
 }

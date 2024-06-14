@@ -1,5 +1,5 @@
 <template>
-  <div class=" nav-sticky">
+  <div class="nav-sticky">
     <div class="scroll-down">
       <div class="mousey">
         <div class="scroller"></div>
@@ -7,25 +7,45 @@
       <p class="m-0">SCROLL DOWN</p>
     </div>
     <div class="scroll-init bg-dark">
-      <p v-for="e,i in section" :key="i" class="scroll-section">{{ e.name }}</p>
+      <p
+        v-for="(e, i) in section"
+        :key="i"
+        class="scroll-section"
+        :class="{ 'section-onview': currentSection === e.id }"
+        @click="handleScrollTo(e.id)"
+      >
+        {{ e.name }}
+      </p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            section: [
-                {name:'Hero'},
-                {name:'About'},
-                {name:'Resume'},
-                {name:'Skills'},
-                {name:'Projects'},
-                {name:'Clients'},
-            ]
-        }
+  props: {
+    currentSection: {
+      type: String,
+      default: ''
+    },
+  },
+  data() {
+    return {
+      section: [
+        { name: 'Hero', id: 'hero' },
+        { name: 'About', id: 'about' },
+        { name: 'Resume', id: 'resume' },
+        { name: 'Skills', id: 'skills' },
+        { name: 'Projects', id: 'projects' },
+        { name: 'Clients' },
+      ],
     }
+  },
+  methods: {
+    handleScrollTo(id) {
+      const view = document.getElementById(id)
+      if (view) view.scrollIntoView()
+    },
+  },
 }
 </script>
 
@@ -38,7 +58,7 @@ export default {
   text-transform: uppercase;
   position: sticky;
   color: #8b8b8b;
-
+  z-index: 9;
   top: 0;
   display: flex;
   align-items: center;
@@ -48,7 +68,6 @@ export default {
     gap: 20px;
     align-items: center;
     padding: 23px;
-  
   }
   .scroll-init {
     display: flex;
@@ -60,7 +79,7 @@ export default {
       cursor: pointer;
       position: relative;
       padding: 8px 35px;
-      transition: .4s;
+      transition: 0.4s;
     }
     .scroll-section::before {
       content: '';
@@ -71,7 +90,7 @@ export default {
       height: 2px;
       margin-top: -1px;
       background-color: rgba(255, 255, 255, 0.091);
-      transition: .4s;
+      transition: 0.4s;
     }
     .scroll-section::after {
       content: '';
@@ -82,11 +101,18 @@ export default {
       height: 2px;
       margin-top: -1px;
       background-color: rgba(255, 255, 255, 0.091);
-      transition: .4s;
+      transition: 0.4s;
     }
     .scroll-section:hover {
       color: #06b6d4;
-      &.scroll-section::after{
+      &.scroll-section::after {
+        background-color: #06b6d4;
+        width: 15px;
+      }
+    }
+    .section-onview {
+      color: #06b6d4;
+      &.scroll-section::after {
         background-color: #06b6d4;
         width: 15px;
       }

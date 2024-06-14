@@ -3,7 +3,9 @@
 @import './variable/responsive.scss';
 @import './variable/typography.scss';
 @import './variable/button.scss';
-
+html {
+  scroll-behavior: smooth;
+}
 // Then include the following
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'bootstrap-vue/src/index.scss';
